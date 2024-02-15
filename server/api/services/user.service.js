@@ -3,7 +3,7 @@ const pool = require("../../config/database");
 module.exports = {
   getUsers: (callBack) => {
     pool.query(
-      `SELECT id, firstname, lastname, gender, email FROM users`,
+      `SELECT id, firstname, lastname, gender, email, password FROM users`,
       [],
       (error, results, fields) => {
         if (error) {
@@ -27,7 +27,7 @@ module.exports = {
   },
   userGetById: (id, callBack) => {
     pool.query(
-      `SELECT id, firstname, lastname, gender, email FROM users WHERE id = ?`,
+      `SELECT id, firstname, lastname, gender, email, password FROM users WHERE id = ?`,
       [id],
       (error, results, fields) => {
         if (error) {
