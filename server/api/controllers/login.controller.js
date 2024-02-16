@@ -18,8 +18,8 @@ module.exports = {
       const result = compare(body.password, results.password);
       if (result) {
         results.password = undefined;
-        const jsontoken = sign({ result: results }, "qwe1234", {
-          expiresIn: "1h",
+        const jsontoken = sign({ result: results }, process.env.SECRET_KEY , {
+          expiresIn: "24h",
         });
         return res.json({
           success: 1,
